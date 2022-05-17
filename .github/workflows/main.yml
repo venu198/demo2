@@ -21,4 +21,4 @@ jobs:
       uses: ncipollo/release-action@v1
       with:
         artifacts: "build/app/outputs/apk/debug/*.apk"
-        token: $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
+        token: "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"
