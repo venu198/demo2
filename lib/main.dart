@@ -1,7 +1,16 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:appcenter/appcenter.dart';
+import 'package:appcenter_analytics/appcenter_analytics.dart';
+import 'package:appcenter_crashes/appcenter_crashes.dart';
 
-void main() {
+Future<void> main() async {
   runApp(MyApp());
+  final ios = defaultTargetPlatform == TargetPlatform.iOS;
+
+  var app_secret = ios ? "iOSGuid" : "AndroidGuid";
+  await AppCenter.start(
+      app_secret, [AppCenterAnalytics.id, AppCenterCrashes.id]);
 }
 
 class MyApp extends StatelessWidget {
